@@ -1,13 +1,13 @@
 // DAO.js
 // 实现与MySQL交互
 var mysql = require('mysql');
-var conf = require('./conf/db');
-var errCode = require('./conf/errCode');
+var db = require('./configs/db');
+var errCode = require('./configs/errCode');
 var util = require('./util');
 var sqlMapping = require('./sqlMapping');
 
 // 使用连接池，提升性能
-var pool  = mysql.createPool(util.extend({}, conf.mysql));
+var pool  = mysql.createPool(util.extend({}, db.mysql));
 
 module.exports = {
 	//注册<增>

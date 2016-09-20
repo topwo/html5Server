@@ -52,11 +52,18 @@ app.post('/register_server', function(req, res, next) {
 
 //招募新兵
 app.post('/recruit_start', function(req, res, next) {
-    util.returnJson(res, {code:'0',msg:'招募新兵开始'});
+console.log(req.body);
+	var data = '{"type":'+(Math.floor(Math.random()*3) + 1)
+				+',"full_hp":'+100
+				+'}';
+    util.returnJson(res, {code:'0',msg:'招募新兵开始',data:data});
 });
 app.get('/recruit_start', function(req, res, next) {
 console.log(req.query);
-    util.returnJson(res, {code:'0',msg:'招募新兵开始'});
+	var data = '{"type":'+(Math.floor(Math.random()*3) + 1)
+				+',"full_hp":'+100
+				+'}';
+    util.returnJson(res, {code:'0',msg:'招募新兵开始',data:data});
 });
 
 server.listen(8081, function () {
